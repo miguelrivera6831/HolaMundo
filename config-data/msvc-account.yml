@@ -5,12 +5,13 @@ spring:
 ---
 # Ambiente dev
 server:
-  port: ${PORT:${SERVER_PORT:0}}
+  port: 8083
 spring:
   profiles: dev
   data:
     mongodb:
-      uri: mongodb://localhost:27017/account
+      uri: mongodb://localhost:27017
+      database: bank_account
 eureka:
   client:
     fetchRegistry: true
