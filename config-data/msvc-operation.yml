@@ -3,17 +3,13 @@ spring:
   
 ---
 server:
-  port: ${PORT:${SERVER_PORT:0}}
+  port: 8084
 spring:
  profiles: dev 
  data:
-   mongodb:
-       database: bankoperation
-       uri: mongodb+srv://root:XR1dZNfCu7G7vbYL@cluster0.rc9rpyb.mongodb.net/?retryWrites=true&w=majority
-       #uri: mongodb://localhost:27017/operation
-
-
-
+   mongodb:       
+       uri: mongodb://localhost:27017
+       database: bank_operation
 eureka:
   client:
     fetch-registry: true
