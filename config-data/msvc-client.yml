@@ -1,0 +1,66 @@
+spring:
+  profiles:
+    active: dev
+    
+---
+# Ambiente dev
+server:
+  port: ${PORT:${SERVER_PORT:0}}
+spring:
+  profiles: dev
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/client
+eureka:
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+    instance:
+      instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'info'
+  info:
+    env:
+      enabled: true
+info:
+  app:
+    version: 1.0.0
+    name: Microservices Client
+    description: Microservices related to the maintenance of clients
+
+---
+# Ambiente prod
+server:
+  port: ${PORT:${SERVER_PORT:0}}
+spring:
+  profiles: prod
+  data:
+    mongodb:
+       database: bankclient
+       uri: mongodb+srv://root:XR1dZNfCu7G7vbYL@cluster0.rc9rpyb.mongodb.net/?retryWrites=true&w=majority
+eureka:
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+    instance:
+      instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'info'
+  info:
+    env:
+      enabled: true
+info:
+  app:
+    version: 1.0.0
+    name: Microservices Client
+    description: Microservices related to the maintenance of clients
