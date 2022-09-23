@@ -5,7 +5,7 @@ spring:
 ---
 # Ambiente dev
 server:
-  port: ${PORT:${SERVER_PORT:0}}
+  port: 8082
 spring:
   profiles: dev
   data:
